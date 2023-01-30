@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">RickAndMorty</string>
+
+    <!-- item_character -->
+    <string name="defaultCharacterName">Character name</string>
+    <string name="defaultSpecies">Human</string>
+    <string name="defaultStatus">Alive</string>
 </resources>

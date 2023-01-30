@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- margins -->
+    <dimen name="small_margin">8dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="normal_margin">24dp</dimen>
+    <dimen name="big_margin">48dp</dimen>
+    <dimen name="huge_margin">72dp</dimen>
+
+    <!-- paddings -->
+    <dimen name="small_padding">8dp</dimen>
+    <dimen name="fab_padding">16dp</dimen>
+    <dimen name="normal_padding">24dp</dimen>
+
+    <!-- elevations -->
+    <dimen name="toolbar_elevation">16dp</dimen>
+    <dimen name="card_elevation">8dp</dimen>
+
+    <!-- corner radius -->
+    <dimen name="card_corner_radius">16dp</dimen>
+    <dimen name="image_character">128dp</dimen>
+
+    <!-- text -->
+    <dimen name="small_text_size">12sp</dimen>
+    <dimen name="normal_text_size">16sp</dimen>
+    <dimen name="big_text_size">20sp</dimen>
+
+</resources>
