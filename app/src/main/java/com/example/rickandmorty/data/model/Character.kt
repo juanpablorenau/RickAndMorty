@@ -1,5 +1,8 @@
 package com.example.rickandmorty.data.model
 
+import androidx.room.Embedded
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 data class Character(
@@ -27,6 +30,17 @@ data class CharacterApiModel(
     @SerializedName("created") val created: String?
 )
 
+@Entity(tableName = "Characters")
+data class CharacterDbModel(
+    @PrimaryKey val id: Int,
+    val name: String?,
+    val status: String?,
+    val species: String?,
+    @Embedded(prefix = "location_") val location: LocationDbModel?,
+    val image: String?,
+    val episodes: List<String>?
+)
+
 fun CharacterApiModel.toCharacter(): Character =
     Character(
         id = id ?: 0,
@@ -36,4 +50,26 @@ fun CharacterApiModel.toCharacter(): Character =
         location = location?.toLocation() ?: Location(),
         image = image ?: "",
         episodes = episodes ?: listOf()
+    )
+
+fun CharacterDbModel.toCharacter(): Character =
+    Character(
+        id = id,
+        name = name ?: "",
+        status = status ?: "",
+        species = species ?: "",
+        location = location?.toLocation() ?: Location(),
+        image = image ?: "",
+        episodes = episodes ?: listOf()
+    )
+
+fun Character.toDbModel(): CharacterDbModel =
+    CharacterDbModel(
+        id = id,
+        name = name,
+        status = status,
+        species = species,
+        location = location.toDbModel(),
+        image = image,
+        episodes = episodes
     )
