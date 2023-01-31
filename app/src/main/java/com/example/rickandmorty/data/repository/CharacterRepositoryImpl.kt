@@ -9,8 +9,8 @@ class CharacterRepositoryImpl @Inject constructor(
     private val characterRemoteDataSource: CharacterRemoteDataSource
 ) : CharacterRepository {
 
-    override suspend fun getCharacters(): List<Character> {
-        return characterRemoteDataSource.getCharacters()
+    override suspend fun getCharacters(page: Int): List<Character> {
+        return characterRemoteDataSource.getCharacters(page)
     }
 
     override suspend fun getCharacter(id: Int): Character {

@@ -3,9 +3,12 @@ package com.example.rickandmorty.ui.main
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.rickandmorty.databinding.ActivityMainBinding
+import com.example.rickandmorty.helpers.extensions.handleError
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
@@ -24,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initRecyclerAdapter()
+        initListeners()
         initObservers()
     }
 
@@ -33,7 +37,29 @@ class MainActivity : AppCompatActivity() {
         binding.recycler.adapter = adapter
     }
 
+    private fun initListeners() {
+        binding.recycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                val layoutManager = (recyclerView.layoutManager as LinearLayoutManager)
+                val listSize = (recyclerView.adapter as CharactersAdapter).itemCount
+
+                if (layoutManager.findLastVisibleItemPosition() >= listSize - 2) {
+                    viewModel.notifyLastVisible()
+                }
+            }
+        })
+    }
+
     private fun initObservers() {
+        lifecycleScope.launch {
+            viewModel.uiState
+                .map { it.isLoading }
+                .distinctUntilChanged()
+                .collect {
+                    binding.progressBar.isVisible = it
+                }
+        }
+
         lifecycleScope.launch {
             viewModel.uiState
                 .map { it.items }
@@ -42,6 +68,14 @@ class MainActivity : AppCompatActivity() {
                     if (it.isNotEmpty()) {
                         (binding.recycler.adapter as? CharactersAdapter)?.submitList(it)
                     }
+                }
+        }
+
+        lifecycleScope.launch {
+            viewModel.uiState
+                .map { it.error }
+                .collect {
+                    handleError(it)
                 }
         }
     }

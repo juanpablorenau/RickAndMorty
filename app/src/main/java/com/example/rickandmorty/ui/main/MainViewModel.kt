@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.rickandmorty.App
 import com.example.rickandmorty.data.model.Character
 import com.example.rickandmorty.data.model.Empty
+import com.example.rickandmorty.data.model.NoInternetError
 import com.example.rickandmorty.data.model.ResultError
 import com.example.rickandmorty.domain.usecase.GetCharactersUseCase
 import com.example.rickandmorty.helpers.extensions.isNetworkAvailable
@@ -37,8 +38,10 @@ class MainViewModel @Inject constructor(
         setLoadingState(true)
 
         if (App.instance.isNetworkAvailable) {
-            setItemsState(getCharactersUseCase())
+            setItemsState(getCharactersUseCase(1))
             setLoadingState(false)
+        } else {
+            setErrorState(NoInternetError)
         }
     }
 
@@ -57,6 +60,24 @@ class MainViewModel @Inject constructor(
             it.copy(
                 isLoading = isLoading
             )
+        }
+    }
+
+    private fun setErrorState(error: ResultError) {
+        uiState.update {
+            it.copy(
+                error = error,
+                isLoading = false
+            )
+        }
+    }
+
+    fun notifyLastVisible() = viewModelScope.launch {
+        val page = (uiState.value.items.size / 20) + 1
+        if (App.instance.isNetworkAvailable) {
+            setItemsState(uiState.value.items + getCharactersUseCase(page))
+        } else {
+            setErrorState(NoInternetError)
         }
     }
 }

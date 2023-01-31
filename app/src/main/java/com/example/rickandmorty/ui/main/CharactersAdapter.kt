@@ -28,6 +28,7 @@ class CharactersAdapter : RecyclerView.Adapter<CharacterViewHolder>() {
 
     fun submitList(list: List<Character>) {
         characterList = list
+        notifyDataSetChanged()
     }
 }
 

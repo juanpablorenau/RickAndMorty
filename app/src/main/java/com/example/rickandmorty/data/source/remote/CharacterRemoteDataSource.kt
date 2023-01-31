@@ -12,7 +12,7 @@ class CharacterRemoteDataSource @Inject constructor(
     private val rickAndMortyApi: RickAndMortyApi
 ) {
 
-    suspend fun getCharacters(page: Int = 1): List<Character> = withContext(Dispatchers.IO) {
+    suspend fun getCharacters(page: Int): List<Character> = withContext(Dispatchers.IO) {
         val response = apiHandler { rickAndMortyApi.getCharacters(page) }
 
         response
