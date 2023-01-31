@@ -13,12 +13,15 @@ class CharacterRemoteDataSource @Inject constructor(
 ) {
 
     suspend fun getCharacters(page: Int): List<Character> = withContext(Dispatchers.IO) {
-        val response = apiHandler { rickAndMortyApi.getCharacters(page) }
-
-        response
-            .results
-            .map {
-                it.toCharacter()
-            }
+        try {
+            val response = apiHandler { rickAndMortyApi.getCharacters(page) }
+            response
+                .results
+                .map {
+                    it.toCharacter()
+                }
+        } catch (e: Exception) {
+            listOf()
+        }
     }
 }

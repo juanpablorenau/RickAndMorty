@@ -4,9 +4,9 @@ import com.example.rickandmorty.data.model.Character
 
 interface CharacterRepository {
 
-    suspend fun getCharacters(page: Int): List<Character>
+    // Api
+    suspend fun getCharacters(): List<Character>
 
-    suspend fun getCharacter(id: Int): Character
-
-    suspend fun saveCharacters()
+    // Room
+    suspend fun saveCharacters(characters: List<Character>)
 }

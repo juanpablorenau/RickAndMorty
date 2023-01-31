@@ -18,6 +18,7 @@ import javax.inject.Inject
 data class CharactersUiState(
     val items: List<Character> = emptyList(),
     val isLoading: Boolean = false,
+    val isReloading: Boolean = false,
     val error: ResultError = Empty
 )
 
@@ -34,11 +35,17 @@ class MainViewModel @Inject constructor(
         getCharacters()
     }
 
+    fun reloadCharacters() = viewModelScope.launch {
+        setReloadingState(true)
+        setItemsState(getCharactersUseCase())
+        setReloadingState(false)
+    }
+
     private fun getCharacters() = viewModelScope.launch {
         setLoadingState(true)
 
         if (App.instance.isNetworkAvailable) {
-            setItemsState(getCharactersUseCase(1))
+            setItemsState(getCharactersUseCase())
             setLoadingState(false)
         } else {
             setErrorState(NoInternetError)
@@ -50,6 +57,7 @@ class MainViewModel @Inject constructor(
             it.copy(
                 items = list,
                 isLoading = false,
+                isReloading = false,
                 error = Empty
             )
         }
@@ -63,21 +71,21 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    private fun setErrorState(error: ResultError) {
+    private fun setReloadingState(isReloading: Boolean) {
         uiState.update {
             it.copy(
-                error = error,
-                isLoading = false
+                isReloading = isReloading
             )
         }
     }
 
-    fun notifyLastVisible() = viewModelScope.launch {
-        val page = (uiState.value.items.size / 20) + 1
-        if (App.instance.isNetworkAvailable) {
-            setItemsState(uiState.value.items + getCharactersUseCase(page))
-        } else {
-            setErrorState(NoInternetError)
+    private fun setErrorState(error: ResultError) {
+        uiState.update {
+            it.copy(
+                error = error,
+                isLoading = false,
+                isReloading = false
+            )
         }
     }
 }

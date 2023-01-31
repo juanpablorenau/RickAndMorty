@@ -8,4 +8,7 @@ interface CharacterDao {
 
     @Query("SELECT * FROM Characters")
     suspend fun getCharacters(): List<CharacterDbModel>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun saveCharacters(characters: List<CharacterDbModel>)
 }
