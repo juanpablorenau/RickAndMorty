@@ -18,6 +18,20 @@
         android:layout_height="match_parent"
         android:background="@color/light_gray">
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start_guideline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.15"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/end_guideline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.85"/>
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -43,59 +57,55 @@
             android:id="@+id/image_character"
             android:layout_width="@dimen/image_character"
             android:layout_height="@dimen/image_character"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            app:srcCompat="@drawable/ic_person"
             android:layout_marginTop="@dimen/normal_margin"
-            android:contentDescription="@null" />
+            android:contentDescription="@null"
+            app:layout_constraintEnd_toStartOf="@+id/end_guideline"
+            app:layout_constraintStart_toStartOf="@+id/start_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:srcCompat="@drawable/ic_person" />
 
         <TextView
             android:id="@+id/text_status"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/text_height"
-            android:layout_marginTop="@dimen/big_margin"
             android:text="@string/detail_status"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/image_character"
+            android:layout_marginTop="@dimen/normal_margin"
+            app:layout_constraintStart_toStartOf="@+id/start_guideline"
             app:layout_constraintTop_toBottomOf="@+id/image_character" />
 
         <EditText
             android:id="@+id/edit_status"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/big_margin"
-            android:layout_marginStart="@dimen/small_margin"
             android:autofillHints="name"
             android:inputType="text"
             android:text="@{character.status}"
-            app:layout_constraintEnd_toEndOf="@+id/image_character"
-            app:layout_constraintStart_toEndOf="@+id/text_location"
-            app:layout_constraintTop_toBottomOf="@+id/image_character"
+            app:layout_constraintEnd_toStartOf="@+id/end_guideline"
+            app:layout_constraintStart_toStartOf="@+id/start_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/text_status"
             tools:ignore="LabelFor" />
 
         <TextView
             android:id="@+id/text_species"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/text_height"
-            android:text="@string/detail_species"
             android:layout_marginTop="@dimen/fab_margin"
+            android:text="@string/detail_species"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/text_status"
-            app:layout_constraintTop_toBottomOf="@+id/text_status" />
+            app:layout_constraintTop_toBottomOf="@+id/edit_status" />
 
         <EditText
             android:id="@+id/edit_species"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/fab_margin"
             android:autofillHints="name"
-            android:layout_marginStart="@dimen/small_margin"
             android:inputType="text"
             android:text="@{character.species}"
             app:layout_constraintEnd_toEndOf="@+id/edit_status"
-            app:layout_constraintStart_toEndOf="@+id/text_location"
-            app:layout_constraintTop_toBottomOf="@+id/edit_status"
+            app:layout_constraintStart_toStartOf="@+id/start_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/text_species"
             tools:ignore="LabelFor" />
 
         <TextView
@@ -103,57 +113,55 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/detail_gender"
+            android:layout_marginTop="@dimen/fab_margin"
             android:textStyle="bold"
-            tools:layout_editor_absoluteX="142dp"
-            tools:layout_editor_absoluteY="376dp" />
+            app:layout_constraintStart_toStartOf="@+id/start_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/edit_species" />
 
         <EditText
             android:id="@+id/edit_gender"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/small_margin"
             android:autofillHints="name"
             android:inputType="text"
             android:text="@{character.gender}"
             app:layout_constraintEnd_toEndOf="@+id/edit_status"
-            app:layout_constraintStart_toEndOf="@+id/text_location"
-            tools:ignore="LabelFor"
-            tools:layout_editor_absoluteY="439dp" />
+            app:layout_constraintStart_toStartOf="@+id/start_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/text_gender"
+            tools:ignore="LabelFor" />
 
         <TextView
             android:id="@+id/text_location"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/text_height"
             android:text="@string/detail_location"
-            android:textStyle="bold"
             android:layout_marginTop="@dimen/fab_margin"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/text_gender"
-            app:layout_constraintTop_toBottomOf="@+id/text_gender" />
+            app:layout_constraintTop_toBottomOf="@+id/edit_gender" />
 
         <EditText
             android:id="@+id/edit_location"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/fab_margin"
             android:autofillHints="name"
-            android:layout_marginStart="@dimen/small_margin"
             android:inputType="text"
             android:text="@{character.location.name}"
             app:layout_constraintEnd_toEndOf="@+id/edit_status"
-            app:layout_constraintStart_toEndOf="@+id/text_location"
-            app:layout_constraintTop_toBottomOf="@+id/edit_gender"
+            app:layout_constraintStart_toStartOf="@+id/start_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/text_location"
             tools:ignore="LabelFor" />
 
         <com.google.android.material.button.MaterialButton
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/save_changes"
             android:backgroundTint="@color/gray"
+            android:text="@string/save_changes"
             app:cornerRadius="@dimen/button_corner_radius"
-            android:layout_marginBottom="@dimen/big_margin"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintEnd_toStartOf="@+id/end_guideline"
+            app:layout_constraintStart_toStartOf="@+id/start_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/edit_location" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
