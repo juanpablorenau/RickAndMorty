@@ -10,6 +10,8 @@ data class Character(
     val name: String = "",
     val status: String = "",
     val species: String = "",
+    val type: String = "",
+    val gender: String = "",
     val location: Location = Location(),
     val image: String = "",
     val episodes: List<String> = listOf()
@@ -36,6 +38,7 @@ data class CharacterDbModel(
     val name: String?,
     val status: String?,
     val species: String?,
+    val gender: String?,
     @Embedded(prefix = "location_") val location: LocationDbModel?,
     val image: String?,
     val episodes: List<String>?
@@ -47,6 +50,7 @@ fun CharacterApiModel.toCharacter(): Character =
         name = name ?: "",
         status = status ?: "",
         species = species ?: "",
+        gender = gender ?: "",
         location = location?.toLocation() ?: Location(),
         image = image ?: "",
         episodes = episodes ?: listOf()
@@ -58,6 +62,7 @@ fun CharacterDbModel.toCharacter(): Character =
         name = name ?: "",
         status = status ?: "",
         species = species ?: "",
+        gender = gender ?: "",
         location = location?.toLocation() ?: Location(),
         image = image ?: "",
         episodes = episodes ?: listOf()
@@ -69,6 +74,7 @@ fun Character.toDbModel(): CharacterDbModel =
         name = name,
         status = status,
         species = species,
+        gender = gender ?: "",
         location = location.toDbModel(),
         image = image,
         episodes = episodes

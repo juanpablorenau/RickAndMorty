@@ -1,5 +1,6 @@
 package com.example.rickandmorty.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rickandmorty.databinding.ActivityMainBinding
 import com.example.rickandmorty.helpers.extensions.handleError
+import com.example.rickandmorty.ui.detail.DetailActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
@@ -31,7 +33,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initRecyclerAdapter() {
-        val adapter = CharactersAdapter()
+        val adapter = CharactersAdapter { clickedCharacter ->
+            goToDetailActivity(clickedCharacter.id)
+        }
         binding.recycler.layoutManager = LinearLayoutManager(this)
         binding.recycler.adapter = adapter
     }
@@ -78,5 +82,13 @@ class MainActivity : AppCompatActivity() {
                     handleError(it)
                 }
         }
+    }
+
+    private fun goToDetailActivity(id: Int) {
+        startActivity(
+            Intent(this, DetailActivity::class.java).apply {
+                putExtra(DetailActivity.INTENT_ID, id)
+            }
+        )
     }
 }

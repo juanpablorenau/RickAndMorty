@@ -12,4 +12,12 @@
     <string name="error_generic">Ha ocurrido un error inesperado</string>
     <string name="error_internet_connection">Error de conexión a internet</string>
 
+    <!-- detail_activity -->
+    <string name="detail_status">Status:</string>
+    <string name="detail_species">Species:</string>
+    <string name="detail_type">Type:</string>
+    <string name="detail_gender">Gender:</string>
+    <string name="detail_location">Location:</string>
+    <string name="save_changes">Guardar Cambios</string>
+
 </resources>

@@ -32,4 +32,8 @@ class CharacterRepositoryImpl @Inject constructor(
     override suspend fun saveCharacters(characters: List<Character>) {
         characterLocalDataSource.saveCharacters(characters)
     }
+
+    override suspend fun getCharacterById(id: Int): Character {
+        return characterLocalDataSource.getCharacterById(id)
+    }
 }

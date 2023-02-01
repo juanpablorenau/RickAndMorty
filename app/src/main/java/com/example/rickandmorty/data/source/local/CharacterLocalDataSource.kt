@@ -23,4 +23,10 @@ class CharacterLocalDataSource @Inject constructor(
             }
         )
     }
+
+    suspend fun getCharacterById(id: Int): Character = withContext(Dispatchers.IO) {
+        dao
+            .getCharacterById(id)
+            .toCharacter()
+    }
 }

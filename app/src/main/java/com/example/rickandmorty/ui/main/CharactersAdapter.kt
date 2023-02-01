@@ -8,7 +8,10 @@ import com.example.rickandmorty.R
 import com.example.rickandmorty.data.model.Character
 import com.example.rickandmorty.databinding.ItemCharacterBinding
 
-class CharactersAdapter : RecyclerView.Adapter<CharacterViewHolder>() {
+class CharactersAdapter(
+    private val onCharacterClick: (Character) -> Unit
+) :
+    RecyclerView.Adapter<CharacterViewHolder>() {
 
     private var characterList: List<Character> = listOf()
 
@@ -19,7 +22,7 @@ class CharactersAdapter : RecyclerView.Adapter<CharacterViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
-        holder.bind(characterList[position])
+        holder.bind(characterList[position], onCharacterClick)
     }
 
     override fun getItemCount(): Int {
@@ -35,12 +38,16 @@ class CharactersAdapter : RecyclerView.Adapter<CharacterViewHolder>() {
 class CharacterViewHolder(private val binding: ItemCharacterBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(character: Character) {
+    fun bind(character: Character, onCharacterClick: (Character) -> Unit) {
         binding.character = character
 
         Glide.with(binding.root.context)
             .load(character.image)
             .placeholder(R.drawable.ic_person)
             .into(binding.imageCharacter)
+
+        binding.card.setOnClickListener {
+            onCharacterClick(character)
+        }
     }
 }

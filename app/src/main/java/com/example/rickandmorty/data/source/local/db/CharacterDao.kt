@@ -11,4 +11,7 @@ interface CharacterDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveCharacters(characters: List<CharacterDbModel>)
+
+    @Query("SELECT * FROM Characters WHERE id = :id")
+    fun getCharacterById(id: Int): CharacterDbModel
 }

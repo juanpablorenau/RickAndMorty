@@ -20,10 +20,15 @@
     <!-- corner radius -->
     <dimen name="card_corner_radius">16dp</dimen>
     <dimen name="image_character">128dp</dimen>
+    <dimen name="button_corner_radius">16dp</dimen>
 
     <!-- text -->
     <dimen name="small_text_size">12sp</dimen>
     <dimen name="normal_text_size">16sp</dimen>
     <dimen name="big_text_size">20sp</dimen>
+    <dimen name="text_height">24dp</dimen>
+
+    <!-- image -->
+    <dimen name="detail_image_character">256dp</dimen>
 
 </resources>
