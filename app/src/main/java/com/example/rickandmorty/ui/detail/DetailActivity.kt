@@ -48,6 +48,11 @@ class DetailActivity : AppCompatActivity() {
         binding.buttonSaveChanges.setClickWithDebounce {
             saveChanges()
         }
+
+        binding.buttonDelete.setClickWithDebounce {
+            viewModel.deleteCharacter()
+            finish()
+        }
     }
 
     private fun saveChanges() {

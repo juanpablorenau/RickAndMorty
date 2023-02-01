@@ -45,7 +45,22 @@
             app:layout_constraintTop_toTopOf="parent"
             app:title="@{character.name}"
             app:navigationIcon="@drawable/ic_arrow_back"
-            app:titleTextColor="@color/black"/>
+            app:titleTextColor="@color/black">
+
+            <ImageView
+                android:id="@+id/button_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:background="?selectableItemBackground"
+                android:padding="@dimen/small_padding"
+                android:clickable="true"
+                android:src="@drawable/ic_delete_outline"
+                android:layout_marginEnd="@dimen/fab_margin"
+                android:contentDescription="@null"
+                android:focusable="true" />
+
+        </androidx.appcompat.widget.Toolbar>
 
         <ProgressBar
             android:id="@+id/progress_bar"

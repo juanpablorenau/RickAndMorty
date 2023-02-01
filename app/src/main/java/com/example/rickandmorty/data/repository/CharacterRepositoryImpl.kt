@@ -40,4 +40,8 @@ class CharacterRepositoryImpl @Inject constructor(
     override suspend fun updateCharacter(character: Character) {
         characterLocalDataSource.updateCharacter(character)
     }
+
+    override suspend fun deleteCharacter(id: Int) {
+        characterLocalDataSource.deleteCharacter(id)
+    }
 }

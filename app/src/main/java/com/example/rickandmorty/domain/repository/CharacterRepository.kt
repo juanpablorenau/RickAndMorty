@@ -13,4 +13,6 @@ interface CharacterRepository {
     suspend fun getCharacterById(id: Int): Character
 
     suspend fun updateCharacter(character: Character)
+
+    suspend fun deleteCharacter(id: Int)
 }

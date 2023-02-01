@@ -33,4 +33,8 @@ class CharacterLocalDataSource @Inject constructor(
     suspend fun updateCharacter(character: Character) = withContext(Dispatchers.IO) {
         dao.updateCharacter(character.toDbModel())
     }
+
+    suspend fun deleteCharacter(id: Int) = withContext(Dispatchers.IO) {
+        dao.deleteCharacter(id)
+    }
 }
