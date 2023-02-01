@@ -7,8 +7,12 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.rickandmorty.R
+import com.example.rickandmorty.data.model.Character
+import com.example.rickandmorty.data.model.Location
 import com.example.rickandmorty.databinding.ActivityDetailBinding
 import com.example.rickandmorty.helpers.extensions.handleError
+import com.example.rickandmorty.helpers.extensions.toast
+import com.example.rickandmorty.helpers.listeners.setClickWithDebounce
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
@@ -27,6 +31,7 @@ class DetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initToolbar()
+        iniListeners()
         initObservers()
 
         intent.extras?.let { viewModel.initData(it) }
@@ -35,6 +40,38 @@ class DetailActivity : AppCompatActivity() {
     private fun initToolbar() {
         setSupportActionBar(binding.toolbar)
         binding.toolbar.setNavigationOnClickListener {
+            finish()
+        }
+    }
+
+    private fun iniListeners() {
+        binding.buttonSaveChanges.setClickWithDebounce {
+            saveChanges()
+        }
+    }
+
+    private fun saveChanges() {
+        val newStatus = binding.editStatus.text.toString()
+        val newSpecies = binding.editSpecies.text.toString()
+        val newGender = binding.editGender.text.toString()
+        val newLocation = Location(
+            name = binding.editLocation.text.toString(),
+            url = viewModel.uiState.value.character.location.url
+        )
+        with(viewModel.uiState.value.character) {
+            val character = Character(
+                id = id,
+                name = name,
+                status = newStatus,
+                species = newSpecies,
+                type = type,
+                gender = newGender,
+                location = newLocation,
+                image = image,
+                episodes = episodes
+            )
+            viewModel.saveCharacter(character)
+            toast(R.string.changes_saved)
             finish()
         }
     }

@@ -32,6 +32,11 @@ class MainActivity : AppCompatActivity() {
         initObservers()
     }
 
+    override fun onResume() {
+        viewModel.reloadCharacters()
+        super.onResume()
+    }
+
     private fun initRecyclerAdapter() {
         val adapter = CharactersAdapter { clickedCharacter ->
             goToDetailActivity(clickedCharacter.id)

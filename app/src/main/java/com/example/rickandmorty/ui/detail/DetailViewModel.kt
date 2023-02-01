@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.rickandmorty.data.model.Empty
 import com.example.rickandmorty.data.model.ResultError
 import com.example.rickandmorty.domain.usecase.GetCharacterUseCase
+import com.example.rickandmorty.domain.usecase.UpdateCharacter
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
@@ -21,7 +22,8 @@ data class DetailUiState(
 
 @HiltViewModel
 class DetailViewModel @Inject constructor(
-    private val getCharacterUseCase: GetCharacterUseCase
+    private val getCharacterUseCase: GetCharacterUseCase,
+    private val updateCharacter: UpdateCharacter
 ) : ViewModel() {
 
     val uiState by lazy {
@@ -33,8 +35,16 @@ class DetailViewModel @Inject constructor(
         getCharacterById(id)
     }
 
+    fun saveCharacter(character: Character) {
+        viewModelScope.launch {
+            updateCharacterState(character)
+            updateCharacter(uiState.value.character)
+        }
+    }
+
     private fun getCharacterById(id: Int) {
         viewModelScope.launch {
+            setLoadingState(true)
             getCharacterUseCase(id)
                 .onSuccess { character ->
                     setSuccessState(character)
@@ -42,6 +52,15 @@ class DetailViewModel @Inject constructor(
                 .onFailure { error ->
                     setErrorState(error as ResultError)
                 }
+            setLoadingState(false)
+        }
+    }
+
+    private fun updateCharacterState(character: Character) {
+        uiState.update {
+            it.copy(
+                character = character
+            )
         }
     }
 

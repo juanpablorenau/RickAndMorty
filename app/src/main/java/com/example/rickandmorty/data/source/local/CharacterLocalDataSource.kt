@@ -29,4 +29,8 @@ class CharacterLocalDataSource @Inject constructor(
             .getCharacterById(id)
             .toCharacter()
     }
+
+    suspend fun updateCharacter(character: Character) = withContext(Dispatchers.IO) {
+        dao.updateCharacter(character.toDbModel())
+    }
 }

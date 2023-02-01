@@ -7,6 +7,7 @@ import com.bumptech.glide.Glide
 import com.example.rickandmorty.R
 import com.example.rickandmorty.data.model.Character
 import com.example.rickandmorty.databinding.ItemCharacterBinding
+import com.example.rickandmorty.helpers.listeners.setClickWithDebounce
 
 class CharactersAdapter(
     private val onCharacterClick: (Character) -> Unit
@@ -46,7 +47,7 @@ class CharacterViewHolder(private val binding: ItemCharacterBinding) :
             .placeholder(R.drawable.ic_person)
             .into(binding.imageCharacter)
 
-        binding.card.setOnClickListener {
+        binding.card.setClickWithDebounce {
             onCharacterClick(character)
         }
     }
