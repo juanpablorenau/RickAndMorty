@@ -1,6 +1,4 @@
 # RickAndMorty
-Init project
-
 
 1. ¿Qué es el DataBinding?  
 
