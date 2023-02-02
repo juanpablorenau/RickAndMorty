@@ -20,5 +20,6 @@
     <string name="detail_location">Location:</string>
     <string name="save_changes">Guardar Cambios</string>
     <string name="changes_saved">Cambios guardados</string>
+    <string name="character_deleted">Personaje borrado</string>
 
 </resources>

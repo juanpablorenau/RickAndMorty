@@ -51,6 +51,7 @@ class DetailActivity : AppCompatActivity() {
 
         binding.buttonDelete.setClickWithDebounce {
             viewModel.deleteCharacter()
+            toast(R.string.character_deleted)
             finish()
         }
     }
