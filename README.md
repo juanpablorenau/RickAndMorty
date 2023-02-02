@@ -16,12 +16,10 @@ Las funciones suspend son un tipo especial de funciones en Kotlin que se pueden 
 
 4. ¿Qué es un lateinit y en qué casos tiene sentido su uso?  
 
-Lateinit es un modificador en Kotlin que se puede usar con propiedades (variables o campos) para indicar que la propiedad se inicializará más adelante en el código. Se utiliza para evitar las excepciones de puntero nulo que pueden ocurrir cuando se accede a una propiedad antes de que se haya inicializado.
+Lateinit es un modificador en Kotlin que se puede usar con propiedades (variables o campos) para indicar que la propiedad se inicializará más adelante en el código. Se utiliza para evitar las excepciones de puntero nulo que pueden ocurrir cuando se accede a una propiedad antes de que se haya inicializado. Algunos casos de uso comunes para lateinit incluyen:
 
-Lateinit se usa normalmente en los casos en los que desea retrasar la inicialización de una propiedad hasta que se cumpla alguna condición o hasta que ocurra un determinado evento. Algunos casos de uso comunes para lateinit incluyen:
+_ Inicializar vistas en una actividad o fragmento de Android: puede usar lateinit para evitar inicializar vistas en el constructor o en el método onCreate, lo que puede hacer que el código sea más legible y fácil de mantener.
 
-Inicializar vistas en una actividad o fragmento de Android: puede usar lateinit para evitar inicializar vistas en el constructor o en el método onCreate, lo que puede hacer que el código sea más legible y fácil de mantener.
+_ Inicializar dependencias en un modelo o presentador: puede usar lateinit para retrasar la inicialización de las dependencias hasta que se necesiten, lo que facilita probar el modelo o el presentador de forma aislada.
 
-Inicializar dependencias en un modelo o presentador: puede usar lateinit para retrasar la inicialización de las dependencias hasta que se necesiten, lo que facilita probar el modelo o el presentador de forma aislada.
-
-Inicializar propiedades que tienen un proceso de inicialización no trivial: si una propiedad requiere algún cálculo o configuración complejo antes de que pueda inicializarse, puede usar lateinit para retrasar su inicialización hasta que realmente se necesite.
+_ Inicializar propiedades que tienen un proceso de inicialización no trivial: si una propiedad requiere algún cálculo o configuración complejo antes de que pueda inicializarse, puede usar lateinit para retrasar su inicialización hasta que realmente se necesite.
