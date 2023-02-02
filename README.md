@@ -12,7 +12,7 @@ Las funciones suspend son un tipo especial de funciones en Kotlin que se pueden 
 
 3. Tenemos una app que llama a varios servicios REST para obtener  información de un usuario. El contrato de dicho servicio ha cambiado y ahora  algunos parámetros nos llegan con un formato diferente. ¿Qué ventajas  aporta la arquitectura de MVVM en este caso?  
 
-
+MVVM separa la lógica de presentación de la lógica comercial, lo que facilita la gestión de cambios en el contrato de los servicios REST sin afectar la interfaz de usuario. En este caso, únicamente habría que cambiar los data class, que servían como modelo de datos de los elementos de la Api, y sus funciones .toModel() que transforman el modelo de datos de la Api al modelo de datos de la aplicación.
 
 4. ¿Qué es un lateinit y en qué casos tiene sentido su uso?  
 
