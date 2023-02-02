@@ -2,7 +2,7 @@
 
 1. ¿Qué es el DataBinding?  
 
-
+DataBinding permite vincular expresiones y variables a vistas XML, de modo que cuando los datos cambien, las vistas se actualicen automáticamente. Ésto ayuda a eliminar el código repetitivo y facilita mantener la interfaz de usuario de su aplicación sincronizada con los datos. El DataBinding es parte de la biblioteca de Android Jetpack, que es un conjunto de bibliotecas, herramientas y orientación para el desarrollo de aplicaciones de Android.
 
 2. ¿Qué son las corrutinas? ¿Y las funciones suspend?  
 
