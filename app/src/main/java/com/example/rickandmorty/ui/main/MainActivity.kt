@@ -32,9 +32,9 @@ class MainActivity : AppCompatActivity() {
         initObservers()
     }
 
-    override fun onResume() {
+    override fun onRestart() {
         viewModel.reloadCharacters()
-        super.onResume()
+        super.onRestart()
     }
 
     private fun initRecyclerAdapter() {
