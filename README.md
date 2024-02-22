@@ -23,3 +23,6 @@ _ Inicializar vistas en una actividad o fragmento de Android: puede usar lateini
 _ Inicializar dependencias en un modelo o presentador: puede usar lateinit para retrasar la inicialización de las dependencias hasta que se necesiten, lo que facilita probar el modelo o el presentador de forma aislada.
 
 _ Inicializar propiedades que tienen un proceso de inicialización no trivial: si una propiedad requiere algún cálculo o configuración complejo antes de que pueda inicializarse, puede usar lateinit para retrasar su inicialización hasta que realmente se necesite.
+
+<img width="366" alt="image" src="https://github.com/juanpablorenau/RickAndMorty/assets/86953862/8ded0e49-c4f5-4fd3-9a18-f02a07912ada">
+
