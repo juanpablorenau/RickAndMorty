@@ -1,6 +1,6 @@
 # RickAndMorty
 
-An android app built using Kotlin that consumes Rick and Morty API to display characters,episodes,Location from the TV Series. It has been built following:
+An android app built using Kotlin that consumes Rick and Morty API to display a list of characters and its details from the TV Series. It has been built following:
 
 - Clean Architecture Principle
 - Repository Pattern
