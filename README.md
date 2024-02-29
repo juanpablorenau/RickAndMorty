@@ -21,6 +21,11 @@ The application has been built following these principles and patterns:
 - **Animations**: They create a more polished and engaging interface, making interactions intuitive and enjoyable for users
 
 
-https://github.com/juanpablorenau/RickAndMorty/assets/86953862/caeaaf04-364a-4d9c-9031-198fafd7e397
+<div align="center">
+  <video controls width="50%">
+    <source src="https://github.com/juanpablorenau/RickAndMorty/raw/main/assets/86953862/caeaaf04-364a-4d9c-9031-198fafd7e397/webm" type="video/webm">
+    Your browser does not support the video tag.
+  </video>
+</div>
 
 
