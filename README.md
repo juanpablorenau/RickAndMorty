@@ -20,6 +20,6 @@ The application has been built following these principles and patterns:
 - **Testing**: The application includes tests to ensure everything works as expected.
 - **Animations**: They create a more polished and engaging interface, making interactions intuitive and enjoyable for users
 
-[![Video](https://img.youtube.com/vi/VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=VIDEO_ID_HERE)
-
+## Video
+https://github.com/juanpablorenau/RickAndMorty/assets/86953862/caeaaf04-364a-4d9c-9031-198fafd7e397
 
