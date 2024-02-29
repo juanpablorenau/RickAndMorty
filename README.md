@@ -20,12 +20,6 @@ The application has been built following these principles and patterns:
 - **Testing**: The application includes tests to ensure everything works as expected.
 - **Animations**: They create a more polished and engaging interface, making interactions intuitive and enjoyable for users
 
-
-<div align="center">
-  <video controls width="50%">
-    <source src="https://github.com/juanpablorenau/RickAndMorty/raw/main/assets/86953862/caeaaf04-364a-4d9c-9031-198fafd7e397/webm" type="video/webm">
-    Your browser does not support the video tag.
-  </video>
-</div>
+[![Video](https://img.youtube.com/vi/VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=VIDEO_ID_HERE)
 
 
