@@ -20,5 +20,5 @@ The application has been built following these principles and patterns:
 - **Testing**: The application includes tests to ensure everything works as expected.
 - **Animations**: They create a more polished and engaging interface, making interactions intuitive and enjoyable for users
 
-![Video]([https://example.com/video.webm](https://drive.google.com/file/d/1j_mzxJDlsCbNYv0FKAWFpQnoVCXey7vh/view?usp=sharing))
+https://example.com/video.webm](https://drive.google.com/file/d/1j_mzxJDlsCbNYv0FKAWFpQnoVCXey7vh/view?usp=sharing
 
