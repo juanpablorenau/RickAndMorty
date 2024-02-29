@@ -18,6 +18,7 @@ The application has been built following these principles and patterns:
 - **Room**: Room is used for data persistence in the application.
 - **Retrofit**: Retrofit is used for calls to the Rick and Morty API.
 - **Testing**: The application includes tests to ensure everything works as expected.
+- **Animations**: They create a more polished and engaging interface, making interactions intuitive and enjoyable for users
 
 
 <img width="366" alt="image" src="https://github.com/juanpablorenau/RickAndMorty/assets/86953862/8ded0e49-c4f5-4fd3-9a18-f02a07912ada">
