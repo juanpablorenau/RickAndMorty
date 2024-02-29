@@ -21,4 +21,4 @@ The application has been built following these principles and patterns:
 - **Animations**: They create a more polished and engaging interface, making interactions intuitive and enjoyable for users
 
 https://drive.google.com/file/d/1j_mzxJDlsCbNYv0FKAWFpQnoVCXey7vh/view?usp=sharing
-
+[![Watch the video](https://i.stack.imgur.com/Vp2cE.png)](https://youtu.be/vt5fpE0bzSY)
