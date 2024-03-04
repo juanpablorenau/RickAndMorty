@@ -1,4 +1,4 @@
-# <span style="color:blue">RickAndMorty: A Journey Through the Multiverse</span>
+[splashscreen_rick_and_morty.webm](https://github.com/juanpablorenau/RickAndMorty/assets/86953862/3d07c437-50e5-4512-b8d6-e7fac356103c)# <span style="color:blue">RickAndMorty: A Journey Through the Multiverse</span>
 
 
 ## Description
@@ -21,5 +21,5 @@ The application has been built following these principles and patterns:
 - **Animations**: They create a more polished and engaging interface, making interactions intuitive and enjoyable for users
 
 ## Video
-https://github.com/juanpablorenau/RickAndMorty/assets/86953862/caeaaf04-364a-4d9c-9031-198fafd7e397
 
+[rick_and_morty_demo.webm](https://github.com/juanpablorenau/RickAndMorty/assets/86953862/0c884465-2db5-40b0-83c0-ba20c3ed11f8)
