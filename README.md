@@ -1,4 +1,4 @@
-[splashscreen_rick_and_morty.webm](https://github.com/juanpablorenau/RickAndMorty/assets/86953862/3d07c437-50e5-4512-b8d6-e7fac356103c)# <span style="color:blue">RickAndMorty: A Journey Through the Multiverse</span>
+# <span style="color:blue">RickAndMorty: A Journey Through the Multiverse</span>
 
 
 ## Description
