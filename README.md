@@ -20,6 +20,10 @@ The application has been built following these principles and patterns:
 - **Testing**: The application includes tests to ensure everything works as expected.
 - **Animations**: They create a more polished and engaging interface, making interactions intuitive and enjoyable for users
 
+## Images
+<img width="233" alt="image" src="https://github.com/juanpablorenau/RickAndMorty/assets/86953862/5ea7fede-d4e8-43a5-b33c-2778f6dd41ac">
+<img width="235" alt="image" src="https://github.com/juanpablorenau/RickAndMorty/assets/86953862/8ed48d49-a349-422e-acba-9f3ce948fe9f">
+
 ## Video
 
 [rick_and_morty_demo.webm](https://github.com/juanpablorenau/RickAndMorty/assets/86953862/0c884465-2db5-40b0-83c0-ba20c3ed11f8)
